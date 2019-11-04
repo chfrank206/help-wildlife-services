@@ -1,20 +1,18 @@
 import * as React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './scss/app';
+import Home from './Components/Home';
 
-class App extends React.Component<IAppProps, IAppState> {
-
-    render() {
-        return (
-            <main className="container my-5">
-                <h1 className="text-primary text-center">Hello {this.state.name}!</h1>
-            </main>
-        )
-    }
+const App: React.SFC<IAppProps> = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route exact path='/' component={Home} />
+            </Switch>
+        </Router>
+    )
 }
 
 export interface IAppProps { }
-
-export interface IAppState {
-    name: string;
-}
 
 export default App;
